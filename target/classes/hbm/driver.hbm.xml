@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.autopark.ent.Driver" table="driver">
+    <id column="id" name="id" type="java.lang.Long">
+      <generator class="increment"/>
+    </id>
+    <property column="name" name="name" type="java.lang.String"/>
+
+    <set name="busses" table="bus_driver" lazy="false">
+        <key column="driver_id"/>
+        <many-to-many column="bus_id" class="com.autopark.ent.Bus"/>
+    </set>
+
+</class>
+</hibernate-mapping>
